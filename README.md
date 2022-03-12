@@ -1,10 +1,3 @@
-#### shortUrl branch is made for self development it is not required in the freeCode Camp project 
-
-## NOTE : what is the new...?
-- create hash function.
-- make shortURL dynamic depend on original_url.
-- create test api on [/api/test] to return var values to check what hapend.
-
 # [URL Shortener Microservice](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/url-shortener-microservice)
 
 ## Build a full stack JavaScript app that is functionally similar to this: https://url-shortener-microservice.freecodecamp.rocks/.
@@ -20,6 +13,12 @@
 - create hashing function for the original_url to create the short_url.
 
 - short_url is now dynamic this make me create route dynamic change with the original_url.
+
+
+## NOTE : what is the new...? => is made for self development it is not required in the freeCode Camp project.
+- create hash function.
+- make shortURL dynamic depend on original_url.
+- create test api on [/api/test] to return var values to check what hapend.
 
 
 #### contact :
