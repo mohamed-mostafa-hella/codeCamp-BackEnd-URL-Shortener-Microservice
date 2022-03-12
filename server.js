@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 var regexpression = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
 var original_url;
-var short_url = 'short_url';
+var short_url;
 
 
 app.use(cors());
@@ -28,8 +28,20 @@ app.get('/api/hello', function(req, res) {
   res.json({ greeting: 'hello API' });
 });
 
+// hashing function convert string to an integer 
+function hashStr (str){
+    var hash = 0;
+    for(var i = 0 ; i < str.length ; i++){
+      hash = ((hash << 5) - hash) + str.charCodeAt(i);
+      hash |= 0;
+    }
+    return Math.abs(hash);
+}
+
 app.post('/api/shorturl',(req,res)=>{
   original_url = req.body.url;
+  short_url = hashStr(original_url);
+  console.log(short_url);
   var retJSON;
   if(req.body.url.match(regexpression)){
     retJSON = {
@@ -42,8 +54,24 @@ app.post('/api/shorturl',(req,res)=>{
   res.status(200);
 })
 
-app.get(`/api/shorturl/${short_url}`,(req,res)=>{
-  res.redirect(original_url);
+// test URLs value
+app.get('/api/test',(req,res)=>{
+  res.json({
+    original_url,
+      short_url
+  });
+  res.status(200);
+});
+
+// make short url dynamic
+app.get('/api/shorturl/:url',(req,res)=>{
+  if(req.params.url == short_url)
+    res.redirect(original_url);
+  else
+    {
+      res.json({"error" : `404 error bage is not found blease check your route. you might want short bath route it is ${short_url}`})
+      res.status(404);
+    }
 });
 
 app.listen(port, function() {
