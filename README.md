@@ -10,6 +10,8 @@
 
 - If you pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain { error: 'invalid url' }.
 
+- create hashing function for the original_url to create the short_url.
+
 - short_url is now dynamic this make me create route dynamic change with the original_url.
 
 
