@@ -20,6 +20,8 @@
 - make shortURL dynamic depend on original_url.
 - create test api on [/api/test] to return var values to check what hapend.
 
+## Note:
+- like [ sample.env ] => Create .env file that contain [PORT = 'your port']. 
 
 #### contact :
  - E_mail : mohamedmostafa6198@gmail.com
